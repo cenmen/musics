@@ -1,0 +1,22 @@
+<!-- form.wxml -->
+<navbar title="表单" />
+<view class="container">
+  <form catch:submit="onSubmit">
+    <view class="section">
+      <label for="name">歌名：</label>
+      <input name="name" value="{{form.name}}" />
+    </view>
+    <view class="section">
+      <label for="singer">歌手：</label>
+      <input name="singer" value="{{form.singer}}" placeholder="多个歌手以'/,，'分隔" />
+    </view>
+    <view class="section">
+      <label for="name">难度：</label>
+      <input name="difficulty" type="number" value="{{form.difficulty}}" />
+    </view>
+    <view class="errors">{{errors}}</view>
+    <view class="footer">
+      <button class="submit-btn" type="primary" formType="submit">提交</button>
+    </view>
+  </form>
+</view>

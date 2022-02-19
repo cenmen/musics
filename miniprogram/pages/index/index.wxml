@@ -1,0 +1,65 @@
+<!-- index.wxml -->
+<navbar showBackBtn="{{false}}">
+  <view class="navbar-container">
+    <picker class="rank-picker" bind:change="rank" value="{{rankIndex}}" range-key="text" range="{{rank}}">
+      <image class="navbar-options-images" src="../../assets/images/search.png" />
+    </picker>
+    <view>
+      <image class="navbar-options-images" src="../../assets/images/copy.png" catch:tap="copy"/>
+    </view>
+    <!-- <image class="navbar-options-images" src="../../assets/images/download.png" catch:tap="download"/> -->
+  </view>
+</navbar>
+<wxs module="tools">
+  var join = function (arr, char) {
+    return arr.join(char)
+  }
+  module.exports = {
+    join: join
+  }
+</wxs>
+<view class="container">
+  <movable-area class="area" style="height:{{areaHeight}}px;">
+    <movable-view 
+      class="item" 
+      style="height:{{ITEM_HEIGHT}}px; z-index:{{index == moveId ? 2 : 1}}" 
+      wx:for="{{musics}}" 
+      wx:key="index" 
+      y="{{item.y}}" 
+      direction="all" 
+      bind:change="moving" 
+      bind:touchend='moved' 
+      data-moveid="{{index}}"
+    >
+      <view class="item-container">
+      <view class="left">
+          <view class="content">
+            <text class="name">{{item.name}}</text>
+            <text> - </text>
+            <text class="singer">{{tools.join(item.singer, '/')}}</text>
+          </view>
+          <view class="star-container">
+            <image 
+              class="star" 
+              wx:for="{{item.stars}}"
+              wx:for-item="status"
+              wx:key="index" 
+              src="../../assets/images/star-{{status}}.png"/>
+          </view>
+        </view>
+        <view class="right">
+          <view class="options" catch:tap="stick" data-item="{{item}}" data-index="{{index}}">
+            <image class="options-images" src="../../assets/images/stick.png" />
+          </view>
+          <view class="options" catch:tap="edit" data-item="{{item}}" data-index="{{index}}">
+            <image class="options-images" src="../../assets/images/edit.png" />
+          </view>
+          <view class="options" catch:tap="delete" data-item="{{item}}" data-index="{{index}}">
+            <image class="options-images" src="../../assets/images/delete.png" />
+          </view>
+        </view>
+      </view>
+    </movable-view>
+  </movable-area>
+</view>
+<image class="options-add" mode="aspectFill" src="../../assets/images/add.png" bind:tap="add" />

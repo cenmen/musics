@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/trend/trend",
+          "pathName": "pages/trend/trend",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页带参",
+          "pathName": "pages/index/index",
+          "query": "INDUSTRY_TIME_STAMP=1628475710",
+          "scene": null
+        },
+        {
+          "name": "pages/trend/trend",
+          "pathName": "pages/trend/trend",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

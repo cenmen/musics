@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/form/form"
+  ],
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar"
+  },
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationStyle": "custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

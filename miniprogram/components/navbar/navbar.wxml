@@ -1,0 +1,10 @@
+<view wx:if="{{active}}" class="container" style="height: {{placeholder ? navBarHeight : '0'}}px;">
+  <view class="navbar fixed"
+    style="height: {{contentBarHeight}}px; padding-top: {{statusBarHeight}}px; background-color: {{backgroundColor}}; background-image: {{backgroundImage}}; transition-duration: {{fadeDuration}}ms; transition-timing-function: {{fadeTimingFunc}}">
+    <image wx:if="{{showBackBtn}}" class="back-icon" src="./images/back-{{frontColor}}.png" catchtap="navBack"/>
+    <view wx:if="{{title}}" class="title" style="color: {{titleColor}};">{{title}}</view>
+    <block wx:else>
+      <slot />
+    </block>
+  </view>
+</view>
